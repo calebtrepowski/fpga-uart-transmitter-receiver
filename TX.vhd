@@ -16,9 +16,9 @@ architecture Behavioral of TX is
 
     -- FPGA clock frequency/baud rate frequency
     -- for 9600 bps: 100M/9600
-    -- constant BPS_CLOCK_COUNT : INTEGER := 10416
+    constant BPS_CLOCK_COUNT : INTEGER := 10416
     -- for debug purposes
-    constant BPS_CLOCK_COUNT : INTEGER := 4;
+    -- constant BPS_CLOCK_COUNT : INTEGER := 4;
 
     -- full word to send: 1 start bit ('0') + 8 data bits + 1 stop bit ('1')
     -- assign result - 1
@@ -29,7 +29,6 @@ architecture Behavioral of TX is
         st2_load,
         st3_count,
         st4_shift
-        -- ,st5_end
     );
     signal tx_state, tx_next_state : state_type;
 
@@ -145,11 +144,6 @@ begin
                 tx_shift_register_shift <= '1';
                 tx_clock_counter_clear <= '1';
                 tx_bit_counter_increment <= '1';
-                -- when st5_end =>
-                --     tx_shift_register_keep <= '1';
-                --     tx_clock_counter_clear <= '1';
-                --     tx_bit_counter_clear <= '1';
-                --     tx_done <= '1';
         end case;
     end process output_decode;
 
@@ -180,17 +174,10 @@ begin
                 end if;
             when st4_shift =>
                 if tx_bit_counter = WORD_SENT_BITS then
-                    -- tx_next_state <= st5_end;
                     tx_next_state <= st1_idle;
                 else
                     tx_next_state <= st3_count;
                 end if;
-                -- when st5_end =>
-                --     if tx_start = '1' then
-                --         tx_next_state <= st2_load;
-                --     else
-                --         tx_next_state <= st5_end;
-                --     end if;
             when others =>
                 tx_next_state <= st1_idle;
         end case;
