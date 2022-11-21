@@ -29,7 +29,7 @@ char *ieee_p_1242562249_sub_1006216973935652998_1035706684(char *, char *, char 
 unsigned char ieee_p_1242562249_sub_3307759752501503797_1035706684(char *, char *, char *, int );
 
 
-static void work_a_1372580397_3212880686_p_0(char *t0)
+static void work_a_0666576766_3212880686_p_0(char *t0)
 {
     char t17[16];
     char t18[16];
@@ -204,7 +204,7 @@ LAB19:    xsi_set_current_line(67, ng0);
 
 }
 
-static void work_a_1372580397_3212880686_p_1(char *t0)
+static void work_a_0666576766_3212880686_p_1(char *t0)
 {
     char t21[16];
     unsigned char t1;
@@ -342,7 +342,7 @@ LAB18:    xsi_set_current_line(84, ng0);
 
 }
 
-static void work_a_1372580397_3212880686_p_2(char *t0)
+static void work_a_0666576766_3212880686_p_2(char *t0)
 {
     char t21[16];
     unsigned char t1;
@@ -480,7 +480,7 @@ LAB18:    xsi_set_current_line(102, ng0);
 
 }
 
-static void work_a_1372580397_3212880686_p_3(char *t0)
+static void work_a_0666576766_3212880686_p_3(char *t0)
 {
     unsigned char t1;
     char *t2;
@@ -554,7 +554,7 @@ LAB8:    xsi_set_current_line(111, ng0);
 
 }
 
-static void work_a_1372580397_3212880686_p_4(char *t0)
+static void work_a_0666576766_3212880686_p_4(char *t0)
 {
     char *t1;
     char *t2;
@@ -771,7 +771,7 @@ LAB6:    xsi_set_current_line(145, ng0);
 
 }
 
-static void work_a_1372580397_3212880686_p_5(char *t0)
+static void work_a_0666576766_3212880686_p_5(char *t0)
 {
     char *t1;
     char *t2;
@@ -924,7 +924,7 @@ LAB14:    xsi_set_current_line(184, ng0);
 
 }
 
-static void work_a_1372580397_3212880686_p_6(char *t0)
+static void work_a_0666576766_3212880686_p_6(char *t0)
 {
     char *t1;
     char *t2;
@@ -967,9 +967,9 @@ LAB4:    goto LAB2;
 }
 
 
-extern void work_a_1372580397_3212880686_init()
+extern void work_a_0666576766_3212880686_init()
 {
-	static char *pe[] = {(void *)work_a_1372580397_3212880686_p_0,(void *)work_a_1372580397_3212880686_p_1,(void *)work_a_1372580397_3212880686_p_2,(void *)work_a_1372580397_3212880686_p_3,(void *)work_a_1372580397_3212880686_p_4,(void *)work_a_1372580397_3212880686_p_5,(void *)work_a_1372580397_3212880686_p_6};
-	xsi_register_didat("work_a_1372580397_3212880686", "isim/TX_tb_isim_beh.exe.sim/work/a_1372580397_3212880686.didat");
+	static char *pe[] = {(void *)work_a_0666576766_3212880686_p_0,(void *)work_a_0666576766_3212880686_p_1,(void *)work_a_0666576766_3212880686_p_2,(void *)work_a_0666576766_3212880686_p_3,(void *)work_a_0666576766_3212880686_p_4,(void *)work_a_0666576766_3212880686_p_5,(void *)work_a_0666576766_3212880686_p_6};
+	xsi_register_didat("work_a_0666576766_3212880686", "isim/TX_isim_beh.exe.sim/work/a_0666576766_3212880686.didat");
 	xsi_register_executes(pe);
 }
