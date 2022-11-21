@@ -1,0 +1,2 @@
+vhdl work "TX.vhd"
+vhdl work "TX_tb.vhd"
