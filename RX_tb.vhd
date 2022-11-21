@@ -30,6 +30,8 @@ architecture behavior of RX_tb is
    -- Clock period definitions
    constant clk_period : TIME := 10 ns;
 
+   signal data_word : STD_LOGIC_VECTOR(7 downto 0) := "00110101";
+
 begin
 
    -- Instantiate the Unit Under Test (UUT)
@@ -60,14 +62,32 @@ begin
       -- insert stimulus here 
       reset <= '1';
       rx_data <= '1';
-      wait for 30 ns;
+      wait for 10 ns;
       reset <= '0';
+      wait for 30 ns;
+      -- start bit
       rx_data <= '0';
-      wait for 30 ns;
-      rx_data <= '1';
-      wait for 30 ns;
-      rx_data <= '0';
-      wait for 30 ns;
+      wait for 80 ns;
+
+      -- data bits
+      rx_data <= data_word(0);
+      wait for 80 ns;
+      rx_data <= data_word(1);
+      wait for 80 ns;
+      rx_data <= data_word(2);
+      wait for 80 ns;
+      rx_data <= data_word(3);
+      wait for 80 ns;
+      rx_data <= data_word(4);
+      wait for 80 ns;
+      rx_data <= data_word(5);
+      wait for 80 ns;
+      rx_data <= data_word(6);
+      wait for 80 ns;
+      rx_data <= data_word(7);
+      wait for 80 ns;
+      
+      -- stop bit
       rx_data <= '1';
 
       wait;

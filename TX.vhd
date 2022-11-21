@@ -16,7 +16,7 @@ architecture Behavioral of TX is
 
     -- FPGA clock frequency/baud rate frequency
     -- for 9600 bps: 100M/9600
-    constant BPS_CLOCK_COUNT : INTEGER := 10416
+    constant BPS_CLOCK_COUNT : INTEGER := 10416;
     -- for debug purposes
     -- constant BPS_CLOCK_COUNT : INTEGER := 4;
 
@@ -37,7 +37,7 @@ architecture Behavioral of TX is
     signal tx_shift_register_load : STD_LOGIC;
     signal tx_shift_register_shift : STD_LOGIC;
 
-    signal tx_clock_counter : unsigned(12 downto 0);
+    signal tx_clock_counter : unsigned(14 downto 0);
     signal tx_clock_counter_clear : STD_LOGIC;
     signal tx_clock_counter_increment : STD_LOGIC;
     signal tx_clock_counter_keep : STD_LOGIC;
@@ -117,12 +117,15 @@ begin
     output_decode : process (tx_state)
     begin
         tx_done <= '0';
+
         tx_shift_register_keep <= '0';
         tx_shift_register_load <= '0';
         tx_shift_register_shift <= '0';
+
         tx_clock_counter_clear <= '0';
         tx_clock_counter_increment <= '0';
         tx_clock_counter_keep <= '0';
+
         tx_bit_counter_clear <= '0';
         tx_bit_counter_increment <= '0';
         tx_bit_counter_keep <= '0';
