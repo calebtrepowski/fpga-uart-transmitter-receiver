@@ -60,9 +60,9 @@ begin
 
       --wait for clk_period*10;
       tx_data <= "00101011";
-      tx_start <= '1';
-      wait for 100 ns;
       tx_start <= '0';
+      wait for 100 ns;
+      tx_start <= '1';
 
       -- insert stimulus here 
 

@@ -1,0 +1,4 @@
+vhdl work "TX.vhd"
+vhdl work "RX.vhd"
+vhdl work "uart_tx_rx.vhd"
+vhdl work "uart_tx_rx_tb.vhd"

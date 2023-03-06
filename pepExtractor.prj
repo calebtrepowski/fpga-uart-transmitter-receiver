@@ -1,1 +1,3 @@
 work	"RX.vhd"
+work	"TX.vhd"
+work	"uart_tx_rx.vhd"

@@ -56,7 +56,7 @@ begin
         )
     begin
         if (clk'event and clk = '1') then
-            if reset = '1' then
+            if reset = '0' then
                 tx_shift_register <= (others => '0');
             elsif tx_shift_register_load = '1' then
                 tx_shift_register <= '1' & tx_data & '0';
@@ -75,7 +75,7 @@ begin
         )
     begin
         if (clk'event and clk = '1') then
-            if reset = '1' or tx_clock_counter_clear = '1' then
+            if reset = '0' or tx_clock_counter_clear = '1' then
                 tx_clock_counter <= (others => '0');
             elsif tx_clock_counter_increment = '1' then
                 tx_clock_counter <= tx_clock_counter + 1;
@@ -93,7 +93,7 @@ begin
         )
     begin
         if (clk'event and clk = '1') then
-            if reset = '1' or tx_bit_counter_clear = '1' then
+            if reset = '0' or tx_bit_counter_clear = '1' then
                 tx_bit_counter <= (others => '0');
             elsif tx_bit_counter_increment = '1' then
                 tx_bit_counter <= tx_bit_counter + 1;
@@ -106,7 +106,7 @@ begin
     sync_process : process (clk)
     begin
         if (clk'event and clk = '1') then
-            if (reset = '1') then
+            if (reset = '0') then
                 tx_state <= st1_idle;
             else
                 tx_state <= tx_next_state;
@@ -162,7 +162,7 @@ begin
         tx_next_state <= tx_state;
         case (tx_state) is
             when st1_idle =>
-                if tx_start = '1' then
+                if tx_start = '0' then
                     tx_next_state <= st2_load;
                 else
                     tx_next_state <= st1_idle;

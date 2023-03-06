@@ -14,9 +14,9 @@ end RX;
 architecture Behavioral of RX is
     -- FPGA clock frequency/baud rate frequency
     -- for 9600 bps: 100M/9600
-    -- constant BPS_CLOCK_COUNT : INTEGER := 10416;
+    constant BPS_CLOCK_COUNT : INTEGER := 10416;
     -- debug
-    constant BPS_CLOCK_COUNT : INTEGER := 6;
+    -- constant BPS_CLOCK_COUNT : INTEGER := 6;
 
     -- for oversampling method
     -- must be BPS_CLOCK_COUNT/2
@@ -60,7 +60,7 @@ begin
         )
     begin
         if (clk'event and clk = '1') then
-            if reset = '1' or rx_shift_register_clear = '1' then
+            if reset = '0' or rx_shift_register_clear = '1' then
                 rx_shift_register <= (others => '0');
             elsif rx_shift_register_shift = '1' then
                 rx_shift_register <= rx_data & rx_shift_register(7 downto 1);
@@ -77,7 +77,7 @@ begin
         )
     begin
         if (clk'event and clk = '1') then
-            if reset = '1' or rx_clock_counter_clear = '1' then
+            if reset = '0' or rx_clock_counter_clear = '1' then
                 rx_clock_counter <= (others => '0');
             elsif rx_clock_counter_increment = '1' then
                 rx_clock_counter <= rx_clock_counter + 1;
@@ -95,7 +95,7 @@ begin
         )
     begin
         if (clk'event and clk = '1') then
-            if reset = '1' or rx_bit_counter_clear = '1' then
+            if reset = '0' or rx_bit_counter_clear = '1' then
                 rx_bit_counter <= (others => '0');
             elsif rx_bit_counter_increment = '1' then
                 rx_bit_counter <= rx_bit_counter + 1;
@@ -108,7 +108,7 @@ begin
     sync_process : process (clk)
     begin
         if (clk'event and clk = '1') then
-            if (reset = '1') then
+            if (reset = '0') then
                 rx_state <= st1_idle;
             else
                 rx_state <= rx_next_state;
